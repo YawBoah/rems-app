@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Building2, Download, FileBarChart, HeadsetIcon as HeadsetHelp } from "lucide-react"
+import Link from "next/link"
 
 export default function BillingReportPage() {
   return (
@@ -13,9 +14,9 @@ export default function BillingReportPage() {
           <span className="text-lg font-semibold">REMS</span>
         </div>
         <nav className="ml-auto flex items-center gap-4 md:gap-6">
-          <a href="/" className="text-sm font-medium">
+          <Link href="/" className="text-sm font-medium">
             Dashboard
-          </a>
+          </Link>
           <a href="/explore" className="text-sm font-medium">
             Explore
           </a>
@@ -188,7 +189,7 @@ export default function BillingReportPage() {
         <div className="mt-8 p-4 border rounded-lg bg-muted/30">
           <h3 className="font-medium mb-2">Having trouble accessing reports?</h3>
           <p className="text-sm text-muted-foreground mb-2">
-            If you're experiencing issues accessing your billing reports, please try the following:
+            If you are experiencing issues accessing your billing reports, please try the following:
           </p>
           <ul className="text-sm text-muted-foreground list-disc pl-5 space-y-1">
             <li>Ensure you have the correct permissions</li>

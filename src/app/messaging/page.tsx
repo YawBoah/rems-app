@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Building2, PaperclipIcon, Send, User } from "lucide-react"
+import Link from "next/link"
 
 export default function MessagingPage() {
   return (
@@ -11,9 +12,9 @@ export default function MessagingPage() {
           <span className="text-lg font-semibold">REMS</span>
         </div>
         <nav className="ml-auto flex items-center gap-4 md:gap-6">
-          <a href="/" className="text-sm font-medium">
+          <Link href="/" className="text-sm font-medium">
             Dashboard
-          </a>
+          </Link>
           <a href="/explore" className="text-sm font-medium">
             Explore
           </a>
@@ -79,7 +80,7 @@ export default function MessagingPage() {
             <div className="flex justify-end gap-3">
               <div className="rounded-lg bg-primary p-3 text-primary-foreground">
                 <p>
-                  Hi John! Yes, I'm very interested in that property. Could you tell me more about the neighborhood?
+                  Hi John! Yes, I am very interested in that property. Could you tell me more about the neighborhood?
                 </p>
                 <div className="mt-1 text-xs text-primary-foreground/80">10:32 AM</div>
               </div>
@@ -93,7 +94,7 @@ export default function MessagingPage() {
               </div>
               <div className="rounded-lg bg-muted p-3">
                 <p>
-                  Of course! The neighborhood is very family-friendly with excellent schools nearby. There's a park
+                  Of course! The neighborhood is very family-friendly with excellent schools nearby. There is a park
                   within walking distance and several shopping centers just a short drive away.
                 </p>
                 <div className="mt-1 text-xs text-muted-foreground">10:35 AM</div>

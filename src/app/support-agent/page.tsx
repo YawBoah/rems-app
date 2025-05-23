@@ -108,7 +108,7 @@ export default function SupportAgentPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Support Options</CardTitle>
-                <CardDescription>Choose how you'd like to receive support</CardDescription>
+                <CardDescription>Choose how you would like to receive support</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">

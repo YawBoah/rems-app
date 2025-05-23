@@ -3,6 +3,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Building2, Filter, MapPin, Search } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import House from "@/img/house.jpg"
 
 export default function ExplorePage() {
   return (
@@ -13,9 +16,9 @@ export default function ExplorePage() {
           <span className="text-lg font-semibold">REMS</span>
         </div>
         <nav className="ml-auto flex items-center gap-4 md:gap-6">
-          <a href="/" className="text-sm font-medium">
+          <Link href="/" className="text-sm font-medium">
             Dashboard
-          </a>
+          </Link>
           <a href="/explore" className="text-sm font-medium text-primary">
             Explore
           </a>
@@ -63,8 +66,8 @@ export default function ExplorePage() {
                 {Array.from({ length: 8 }).map((_, i) => (
                   <Card key={i} className="overflow-hidden">
                     <div className="aspect-video w-full bg-muted">
-                      <img
-                        src={`/placeholder.svg?height=200&width=300&text=Property+${i + 1}`}
+                      <Image
+                        src={House}
                         alt={`Property ${i + 1}`}
                         className="h-full w-full object-cover"
                       />

@@ -3,7 +3,9 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Building2, Filter, MapPin, MessageSquare, Search, ShieldCheck, Star } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
+import House from "@/img/house.jpg"
 
 export default function VerifiedAgentsPage() {
   return (
@@ -67,8 +69,8 @@ export default function VerifiedAgentsPage() {
                     <div className="p-4">
                       <div className="flex items-center gap-4">
                         <div className="h-16 w-16 rounded-full bg-muted overflow-hidden">
-                          <img
-                            src={`/placeholder.svg?height=64&width=64&text=Agent`}
+                          <Image
+                            src={House}
                             alt={`Agent ${i + 1}`}
                             className="h-full w-full object-cover"
                           />
