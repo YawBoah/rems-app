@@ -1,101 +1,263 @@
-import Image from "next/image";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  Bell,
+  Building2,
+  Compass,
+  HeadsetIcon as HeadsetHelp,
+  Home,
+  MapPin,
+  MessageSquare,
+  ShieldCheck,
+  AlertTriangle,
+  FileBarChart,
+} from "lucide-react"
+import Link from "next/link"
 
-export default function Home() {
+export default function Dashboard() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex min-h-screen w-full flex-col">
+      <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+        <div className="flex items-center gap-2">
+          <Building2 className="h-6 w-6" />
+          <span className="text-lg font-semibold">REMS</span>
         </div>
+        <nav className="ml-auto flex items-center gap-4 md:gap-6">
+          <Link href="/" className="flex items-center gap-2 text-sm font-medium text-primary">
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Link>
+          <Link href="/explore" className="flex items-center gap-2 text-sm font-medium">
+            <Compass className="h-4 w-4" />
+            Explore
+          </Link>
+          <Link href="/notice-board" className="flex items-center gap-2 text-sm font-medium">
+            <Bell className="h-4 w-4" />
+            Notice Board
+          </Link>
+          <Link href="/verified-agents" className="flex items-center gap-2 text-sm font-medium">
+            <ShieldCheck className="h-4 w-4" />
+            Agents
+          </Link>
+          <Link href="/messaging" className="flex items-center gap-2 text-sm font-medium">
+            <MessageSquare className="h-4 w-4" />
+            Messages
+          </Link>
+          <Link href="/billing" className="flex items-center gap-2 text-sm font-medium">
+            <FileBarChart className="h-4 w-4" />
+            Billing
+          </Link>
+        </nav>
+      </header>
+      <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Properties Listed</CardTitle>
+              <Building2 className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">1,248</div>
+              <p className="text-xs text-muted-foreground">+12% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Active Agents</CardTitle>
+              <ShieldCheck className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">324</div>
+              <p className="text-xs text-muted-foreground">+4% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">User Inquiries</CardTitle>
+              <MessageSquare className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">573</div>
+              <p className="text-xs text-muted-foreground">+18% from last month</p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Revenue</CardTitle>
+              <FileBarChart className="h-4 w-4 text-muted-foreground" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">$48,294</div>
+              <p className="text-xs text-muted-foreground">+7% from last month</p>
+            </CardContent>
+          </Card>
+        </div>
+        <Tabs defaultValue="functional-areas">
+          <TabsList>
+            <TabsTrigger value="functional-areas">Functional Areas</TabsTrigger>
+            <TabsTrigger value="demographics">Demographics</TabsTrigger>
+            <TabsTrigger value="reports">Reports</TabsTrigger>
+          </TabsList>
+          <TabsContent value="functional-areas" className="space-y-4">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Notice Board</CardTitle>
+                  <Bell className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    View and manage demographic data related to property listings and market trends.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/notice-board" className="text-sm font-medium text-primary">
+                      View Details →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Support Agent</CardTitle>
+                  <HeadsetHelp className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Connect with support agents for assistance with software usage and issue resolution.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/support-agent" className="text-sm font-medium text-primary">
+                      Contact Support →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Houses Pinned</CardTitle>
+                  <MapPin className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    View and manage properties you have saved for later reference or comparison.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/houses-pinned" className="text-sm font-medium text-primary">
+                      View Pinned →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Explore</CardTitle>
+                  <Compass className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Browse available properties with advanced search and filtering options.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/explore" className="text-sm font-medium text-primary">
+                      Start Exploring →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Verified Agents</CardTitle>
+                  <ShieldCheck className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Find and connect with verified real estate agents in your area of interest.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/verified-agents" className="text-sm font-medium text-primary">
+                      Find Agents →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Messenger</CardTitle>
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Communicate with agents, property managers, and other users through our secure messaging system.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/messaging" className="text-sm font-medium text-primary">
+                      Open Messages →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Emergency Support</CardTitle>
+                  <AlertTriangle className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Access urgent assistance for time-sensitive property or transaction issues.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/emergency-support" className="text-sm font-medium text-primary">
+                      Emergency Help →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                  <CardTitle>Billing Reports</CardTitle>
+                  <FileBarChart className="h-5 w-5 text-primary" />
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Generate and view financial reports related to property management and transactions.
+                  </CardDescription>
+                  <div className="mt-4 flex justify-end">
+                    <Link href="/billing" className="text-sm font-medium text-primary">
+                      View Reports →
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+          <TabsContent value="demographics">
+            <Card>
+              <CardHeader>
+                <CardTitle>Demographic Data</CardTitle>
+                <CardDescription>
+                  View demographic information relevant to real estate listings in different areas.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">Select a region to view detailed demographic data.</p>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="reports">
+            <Card>
+              <CardHeader>
+                <CardTitle>Billing Reports</CardTitle>
+                <CardDescription>Generate and view financial reports related to property management.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Select a report type and date range to generate reports.
+                </p>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
